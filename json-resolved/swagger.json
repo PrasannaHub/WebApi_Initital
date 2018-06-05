@@ -1,0 +1,459 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "v1",
+    "title" : "API Services"
+  },
+  "host" : "almoujqa.positiveedge.net:90",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/api/Contact" : {
+      "get" : {
+        "tags" : [ "Contact" ],
+        "description" : "Test",
+        "operationId" : "Contact_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "contactid",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Contact"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Contact" ],
+        "operationId" : "Contact_Delete",
+        "consumes" : [ ],
+        "produces" : [ ],
+        "parameters" : [ {
+          "name" : "contactid",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    },
+    "/api/Opportunity" : {
+      "get" : {
+        "tags" : [ "Opportunity" ],
+        "operationId" : "Opportunity_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "opportunityId",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Opportunity"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Opportunity" ],
+        "operationId" : "Opportunity_Delete",
+        "consumes" : [ ],
+        "produces" : [ ],
+        "parameters" : [ {
+          "name" : "opportunityId",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    },
+    "/api/Organization" : {
+      "get" : {
+        "tags" : [ "Organization" ],
+        "operationId" : "Organization_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Organization"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Organization" ],
+        "operationId" : "Organization_Delete",
+        "consumes" : [ ],
+        "produces" : [ ],
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Contact" : {
+      "type" : "object",
+      "properties" : {
+        "ContactID" : {
+          "type" : "string"
+        },
+        "ContactFirstName" : {
+          "type" : "string"
+        },
+        "ContactLastName" : {
+          "type" : "string"
+        },
+        "OrganizationName" : {
+          "type" : "string"
+        },
+        "OrganizationID" : {
+          "type" : "string"
+        },
+        "CreatedOn" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "Email" : {
+          "type" : "string"
+        },
+        "Phone" : {
+          "type" : "string"
+        },
+        "Type" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "OrganizationName" : "OrganizationName",
+        "Type" : "Type",
+        "Email" : "Email",
+        "Phone" : "Phone",
+        "ContactID" : "ContactID",
+        "ContactFirstName" : "ContactFirstName",
+        "OrganizationID" : "OrganizationID",
+        "CreatedOn" : "2000-01-23T04:56:07.000+00:00",
+        "ContactLastName" : "ContactLastName"
+      }
+    },
+    "Opportunity" : {
+      "type" : "object",
+      "properties" : {
+        "OpportunityID" : {
+          "type" : "string"
+        },
+        "Capture" : {
+          "$ref" : "#/definitions/OpportunityCapture"
+        },
+        "Assess" : {
+          "$ref" : "#/definitions/OpportunityAssess"
+        },
+        "Recommned" : {
+          "$ref" : "#/definitions/OpportunityRecommend"
+        }
+      },
+      "example" : {
+        "Assess" : {
+          "TechnologyWikiNotes" : "TechnologyWikiNotes",
+          "CompanyStrategicFit" : "CompanyStrategicFit",
+          "BioMakerWikiNotes" : "BioMakerWikiNotes",
+          "CompanyDealFeasibilityComments" : "CompanyDealFeasibilityComments",
+          "BioMakerClinicalValidationComments" : "BioMakerClinicalValidationComments",
+          "BioMakerStrategicFitComments" : "BioMakerStrategicFitComments",
+          "TechnologyStrategicFitComments" : "TechnologyStrategicFitComments",
+          "TechnologyTechnologyAttractiveness" : "TechnologyTechnologyAttractiveness",
+          "CompanyMarketAttractivenessComments" : "CompanyMarketAttractivenessComments",
+          "BioMakerUnmetMedicalNeed" : "BioMakerUnmetMedicalNeed",
+          "CompanyStrategicFitComments" : "CompanyStrategicFitComments",
+          "TechnologyCompanyFitComments" : "TechnologyCompanyFitComments",
+          "TechnologyTechnologyAttractivenessComments" : "TechnologyTechnologyAttractivenessComments",
+          "TechnologyMarketAttractivenessComments" : "TechnologyMarketAttractivenessComments",
+          "BioMakerClinicalValidation" : "BioMakerClinicalValidation",
+          "BioMakerUnmetMedicalNeedComments" : "BioMakerUnmetMedicalNeedComments",
+          "BioMakerStrategicFit" : "BioMakerStrategicFit",
+          "BioMakerMarketAttractivenessComments" : "BioMakerMarketAttractivenessComments",
+          "BioMakerTechnologyAttractiveness" : "BioMakerTechnologyAttractiveness",
+          "TechnologyMarketAttractiveness" : "TechnologyMarketAttractiveness",
+          "TechnologyCompanyFit" : "TechnologyCompanyFit",
+          "CompanyDealFeasibility" : "CompanyDealFeasibility",
+          "BioMakerMarketAttractiveness" : "BioMakerMarketAttractiveness",
+          "CompanyWikiNotes" : "CompanyWikiNotes",
+          "CompanyMarketAttractiveness" : "CompanyMarketAttractiveness",
+          "BioMakerTechnologyAttractivenessComments" : "BioMakerTechnologyAttractivenessComments",
+          "TechnologyStrategicFit" : "TechnologyStrategicFit"
+        },
+        "OpportunityID" : "OpportunityID",
+        "Recommned" : {
+          "RecommendationSummary" : "RecommendationSummary",
+          "Recommendation" : "Recommendation"
+        },
+        "Capture" : {
+          "OrganizationName" : "OrganizationName",
+          "TargetBAUnit" : "TargetBAUnit",
+          "Status" : "Status",
+          "OpportunityName" : "OpportunityName",
+          "BioMakerTechnology" : "BioMakerTechnology",
+          "Description" : "Description",
+          "CreatedOn" : "2000-01-23T04:56:07.000+00:00",
+          "OpportunityType" : "OpportunityType"
+        }
+      }
+    },
+    "OpportunityCapture" : {
+      "type" : "object",
+      "properties" : {
+        "OpportunityName" : {
+          "type" : "string"
+        },
+        "OrganizationName" : {
+          "type" : "string"
+        },
+        "BioMakerTechnology" : {
+          "type" : "string"
+        },
+        "OpportunityType" : {
+          "type" : "string"
+        },
+        "TargetBAUnit" : {
+          "type" : "string"
+        },
+        "Description" : {
+          "type" : "string"
+        },
+        "CreatedOn" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "Status" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "OrganizationName" : "OrganizationName",
+        "TargetBAUnit" : "TargetBAUnit",
+        "Status" : "Status",
+        "OpportunityName" : "OpportunityName",
+        "BioMakerTechnology" : "BioMakerTechnology",
+        "Description" : "Description",
+        "CreatedOn" : "2000-01-23T04:56:07.000+00:00",
+        "OpportunityType" : "OpportunityType"
+      }
+    },
+    "OpportunityAssess" : {
+      "type" : "object",
+      "properties" : {
+        "CompanyStrategicFit" : {
+          "type" : "string"
+        },
+        "CompanyStrategicFitComments" : {
+          "type" : "string"
+        },
+        "CompanyMarketAttractiveness" : {
+          "type" : "string"
+        },
+        "CompanyMarketAttractivenessComments" : {
+          "type" : "string"
+        },
+        "CompanyDealFeasibility" : {
+          "type" : "string"
+        },
+        "CompanyDealFeasibilityComments" : {
+          "type" : "string"
+        },
+        "BioMakerStrategicFit" : {
+          "type" : "string"
+        },
+        "BioMakerStrategicFitComments" : {
+          "type" : "string"
+        },
+        "BioMakerMarketAttractiveness" : {
+          "type" : "string"
+        },
+        "BioMakerMarketAttractivenessComments" : {
+          "type" : "string"
+        },
+        "BioMakerClinicalValidation" : {
+          "type" : "string"
+        },
+        "BioMakerClinicalValidationComments" : {
+          "type" : "string"
+        },
+        "BioMakerUnmetMedicalNeed" : {
+          "type" : "string"
+        },
+        "BioMakerUnmetMedicalNeedComments" : {
+          "type" : "string"
+        },
+        "BioMakerTechnologyAttractiveness" : {
+          "type" : "string"
+        },
+        "BioMakerTechnologyAttractivenessComments" : {
+          "type" : "string"
+        },
+        "TechnologyStrategicFit" : {
+          "type" : "string"
+        },
+        "TechnologyStrategicFitComments" : {
+          "type" : "string"
+        },
+        "TechnologyMarketAttractiveness" : {
+          "type" : "string"
+        },
+        "TechnologyMarketAttractivenessComments" : {
+          "type" : "string"
+        },
+        "TechnologyCompanyFit" : {
+          "type" : "string"
+        },
+        "TechnologyCompanyFitComments" : {
+          "type" : "string"
+        },
+        "TechnologyTechnologyAttractiveness" : {
+          "type" : "string"
+        },
+        "TechnologyTechnologyAttractivenessComments" : {
+          "type" : "string"
+        },
+        "CompanyWikiNotes" : {
+          "type" : "string"
+        },
+        "BioMakerWikiNotes" : {
+          "type" : "string"
+        },
+        "TechnologyWikiNotes" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "TechnologyWikiNotes" : "TechnologyWikiNotes",
+        "CompanyStrategicFit" : "CompanyStrategicFit",
+        "BioMakerWikiNotes" : "BioMakerWikiNotes",
+        "CompanyDealFeasibilityComments" : "CompanyDealFeasibilityComments",
+        "BioMakerClinicalValidationComments" : "BioMakerClinicalValidationComments",
+        "BioMakerStrategicFitComments" : "BioMakerStrategicFitComments",
+        "TechnologyStrategicFitComments" : "TechnologyStrategicFitComments",
+        "TechnologyTechnologyAttractiveness" : "TechnologyTechnologyAttractiveness",
+        "CompanyMarketAttractivenessComments" : "CompanyMarketAttractivenessComments",
+        "BioMakerUnmetMedicalNeed" : "BioMakerUnmetMedicalNeed",
+        "CompanyStrategicFitComments" : "CompanyStrategicFitComments",
+        "TechnologyCompanyFitComments" : "TechnologyCompanyFitComments",
+        "TechnologyTechnologyAttractivenessComments" : "TechnologyTechnologyAttractivenessComments",
+        "TechnologyMarketAttractivenessComments" : "TechnologyMarketAttractivenessComments",
+        "BioMakerClinicalValidation" : "BioMakerClinicalValidation",
+        "BioMakerUnmetMedicalNeedComments" : "BioMakerUnmetMedicalNeedComments",
+        "BioMakerStrategicFit" : "BioMakerStrategicFit",
+        "BioMakerMarketAttractivenessComments" : "BioMakerMarketAttractivenessComments",
+        "BioMakerTechnologyAttractiveness" : "BioMakerTechnologyAttractiveness",
+        "TechnologyMarketAttractiveness" : "TechnologyMarketAttractiveness",
+        "TechnologyCompanyFit" : "TechnologyCompanyFit",
+        "CompanyDealFeasibility" : "CompanyDealFeasibility",
+        "BioMakerMarketAttractiveness" : "BioMakerMarketAttractiveness",
+        "CompanyWikiNotes" : "CompanyWikiNotes",
+        "CompanyMarketAttractiveness" : "CompanyMarketAttractiveness",
+        "BioMakerTechnologyAttractivenessComments" : "BioMakerTechnologyAttractivenessComments",
+        "TechnologyStrategicFit" : "TechnologyStrategicFit"
+      }
+    },
+    "OpportunityRecommend" : {
+      "type" : "object",
+      "properties" : {
+        "Recommendation" : {
+          "type" : "string"
+        },
+        "RecommendationSummary" : {
+          "type" : "string"
+        }
+      },
+      "example" : {
+        "RecommendationSummary" : "RecommendationSummary",
+        "Recommendation" : "Recommendation"
+      }
+    },
+    "Organization" : {
+      "type" : "object",
+      "properties" : {
+        "OrganizationID" : {
+          "type" : "string"
+        },
+        "OrganizationName" : {
+          "type" : "string"
+        },
+        "CreatedOn" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "OrganizationType" : {
+          "type" : "string"
+        },
+        "Contacts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Contact"
+          }
+        }
+      },
+      "example" : {
+        "OrganizationName" : "OrganizationName",
+        "Contacts" : [ {
+          "OrganizationName" : "OrganizationName",
+          "Type" : "Type",
+          "Email" : "Email",
+          "Phone" : "Phone",
+          "ContactID" : "ContactID",
+          "ContactFirstName" : "ContactFirstName",
+          "OrganizationID" : "OrganizationID",
+          "CreatedOn" : "2000-01-23T04:56:07.000+00:00",
+          "ContactLastName" : "ContactLastName"
+        }, {
+          "OrganizationName" : "OrganizationName",
+          "Type" : "Type",
+          "Email" : "Email",
+          "Phone" : "Phone",
+          "ContactID" : "ContactID",
+          "ContactFirstName" : "ContactFirstName",
+          "OrganizationID" : "OrganizationID",
+          "CreatedOn" : "2000-01-23T04:56:07.000+00:00",
+          "ContactLastName" : "ContactLastName"
+        } ],
+        "OrganizationID" : "OrganizationID",
+        "CreatedOn" : "2000-01-23T04:56:07.000+00:00",
+        "OrganizationType" : "OrganizationType"
+      }
+    }
+  }
+}
